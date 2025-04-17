@@ -1,0 +1,19 @@
+services:
+  chat-gui:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    container_name: chat-gui
+    restart: unless-stopped
+    ports:
+      - "80:80"
+      - "443:443"
+    environment:
+      TZ: UTC
+      LOGIN_URI: http://chat/login
+      RUSTLA_URL: http://chat
+      WEBSOCKET_URI: wss://chat.chat/ws
+      API_URI: http://chat.chat
+    volumes:
+      - ./.env.dev:/ui/.env
+

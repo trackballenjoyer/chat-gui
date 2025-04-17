@@ -1,4 +1,4 @@
-require('dotenv').config();
+// require('dotenv').config();
 
 const MiniCssExtractPlugin = require('mini-css-extract-plugin');
 const fs = require('fs');
@@ -202,10 +202,10 @@ const plugins = [
         filename: '[name].[contenthash].css'
     }),
     new webpack.DefinePlugin({
-        WEBSOCKET_URI: process.env.WEBSOCKET_URI ? `'${process.env.WEBSOCKET_URI}'` : '"wss://chat.strims.gg/ws"',
+        WEBSOCKET_URI: process.env.WEBSOCKET_URI ? `'${process.env.WEBSOCKET_URI}'` : '"wss://chat/ws"',
         API_URI: process.env.API_URI ? `'${process.env.API_URI}'` : '""',
         LOGIN_URI: process.env.LOGIN_URI ? `'${process.env.LOGIN_URI}'` : 'false',
-        RUSTLA_URL: process.env.RUSTLA_URL ? `'${process.env.RUSTLA_URL}'` : '"https://strims.gg"',
+        RUSTLA_URL: process.env.RUSTLA_URL ? `'${process.env.RUSTLA_URL}'` : '"https://chat"',
         NITTER_URL: process.env.NITTER_URL ? `'${process.env.NITTER_URL}'` : '"https://nitter.net"'
     }),
     emoteManifestPlugin
